@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gestiune angajati</title>
+    <link href="./styles-departamente.css" rel="stylesheet" />
+    <script defer src="./departamente.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com/" />
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Climate+Crisis&family=Montserrat:ital,wght@0,100;0,200;0,300;1,100;1,200;1,300&family=Roboto:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <!-- Navigation -->
+    <header id="header">
+      <div class="info">
+        <p><i class="fa-solid fa-person"></i> Gestiune angajati</p>
+      </div>
+      <div class="main">
+        <div class="logo">
+          <a class="logo" href="#">Raiffeisen</a>
+        </div>
+        <div class="search">
+          <div class="input-group">
+            <span class="icon"
+              ><i class="fa-solid fa-magnifying-glass"></i
+            ></span>
+            <div class="searchh">
+              <input type="text" placeholder="Search department" />
+            </div>
+          </div>
+        </div>
+        <div class="add">
+          <a class="order" href="#" onclick="openPopup()" id="addDepartmentBtn">
+            <i class="fa-solid fa-add"></i> Add Department
+          </a>
+        </div>
+
+        <div id="popup" class="popup">
+          <div class="popup-content">
+            <!-- Formularul pentru adăugarea departamentului -->
+            <h2>Add Department</h2>
+            <form id="myForm">
+              <input
+                type="text"
+                name="name"
+                placeholder="Department Name"
+                required
+              /><br />
+              <button id="addButton" onclick="postData()">Add</button>
+              <button id="updateButton">Update</button>
+            </form>
+            <button onclick="closePopup()">Close</button>
+          </div>
+        </div>
+      </div>
+      <nav class="categories">
+        <a class="category" href="./gestiune.html">Home</a>
+        <a class="category" href="./departamente.html">Departamente</a>
+        <a class="category" href="./proiecte.html">Proiecte</a>
+        <a class="category" href="./Angajati.html">Angajati</a>
+      </nav>
+    </header>
+
+    <table class="department-table">
+      <thead>
+        <tr>
+          <th>Departament</th>
+          <th>Delete</th>
+          <th>Update</th>
+        </tr>
+      </thead>
+      <tbody id="table-body-department"></tbody>
+    </table>
+  </body>
+</html>

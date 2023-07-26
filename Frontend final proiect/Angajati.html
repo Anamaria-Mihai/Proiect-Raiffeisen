@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Gestiune angajati</title>
+        <link href="./styles-angajati.css" rel="stylesheet" />
+        <script defer src="./angajati.js"></script>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com/" />
+        <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Climate+Crisis&family=Montserrat:ital,wght@0,100;0,200;0,300;1,100;1,200;1,300&family=Roboto:wght@300&display=swap"
+            rel="stylesheet"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+            integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
+    </head>
+    <body>
+        <!-- Navigation -->
+        <header id="header">
+            <div class="info">
+                <p><i class="fa-solid fa-person"></i> Gestiune angajati</p>
+            </div>
+            <div class="main">
+                <div class="logo">
+                    <a class="logo" href="#">Raiffeisen</a>
+                </div>
+                <div class="search">
+                    <div class="input-group">
+                        <span class="icon"><i class="fa-solid fa-magnifying-glass"></i></span>
+                        <div class="searchh">
+                            <input type="text" placeholder="Search employees" />
+                        </div>
+                    </div>
+                </div>
+                <div class="add">
+                    <a class="order" href="#" onclick="openPopup()" id="addEmployeeBtn">
+                        <i class="fa-solid fa-add"></i> Add Employee
+                    </a>
+                </div>
+
+                <div id="popup" class="popup">
+                    <div class="popup-content">
+                        <!-- Formularul pentru adăugarea angajatului -->
+                        <h2>Add Employee</h2>
+                        <form id="myForm">
+                            <label for="fname">Prenume:</label
+                            ><input
+                                type="text"
+                                id="fname"
+                                name="fname"
+                                placeholder="Name"
+                                required
+                            />
+                            <label for="lname">Nume:</label
+                            ><input
+                                type="text"
+                                id="lname"
+                                name="lname"
+                                placeholder="Name"
+                                required
+                            />
+                            <label for="age">Varsta:</label>
+                            <input type="number" id="age" name="age" min="0" max="100" step="1" />
+
+                            <label for="function">Functie:</label
+                            ><input type="text" id="function" name="function" required />
+                            <label for="salary">Salariu: <i class="fa-solid fa-euro"></i> </label>
+                            <input type="number" id="salary" name="salary" min="0" max="100" />
+                            <div class="input-dp">
+                                <label for="department">Departament:</label>
+                                <select id="select-departments" name="department"></select>
+                            </div>
+
+                            <div class="input-pr">
+                                <label for="project">Proiect:</label>
+                                <select id="select-projects" name="project"></select>
+                            </div>
+
+                            <div class="email">
+                                <label for="email">Email:</label>
+                                <input type="email" id="email" name="email" required />
+                            </div>
+
+                            <label for="hire-date">Data angajarii:</label>
+                            <input type="date" id="hire-date" name="Hire-date" /><br />
+                            <!-- <input type="submit" value="Submit" /> -->
+                            <button id="addButton" onclick="postData()">Add</button>
+                            <button id="updateButton">Update</button>
+                        </form>
+                        <button onclick="closePopup()">Close</button>
+                    </div>
+                </div>
+            </div>
+            <nav class="categories">
+                <a class="category" href="./gestiune.html">Home</a>
+                <a class="category" href="./departamente.html">Departamente</a>
+                <a class="category" href="./proiecte.html">Proiecte</a>
+                <a class="category" href="./Angajati.html">Angajati</a>
+            </nav>
+        </header>
+        <section id="sort">
+            <div class="input-group">
+                <label id="sortid" for="sort">Ordoneaza dupa:</label>
+                <select id="sortDropDown">
+                    <option></option>
+                    <option value="name">Nume</option>
+                    <option value="age">Varsta</option>
+                    <option value="salary">Salariu</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label id="sortid" for="sort">Filtreaza dupa departament:</label>
+                <select id="filterByDepartment" onchange="filterByDepartment(this)"></select>
+            </div>
+
+            <div class="input-group">
+                <label id="sortid" for="sort">Filtreaza dupa proiect:</label>
+                <select id="filterByProject" onchange="filterByProject(this)"></select>
+            </div>
+        </section>
+        <table class="employee-table">
+            <thead>
+                <tr>
+                    <th>Nume</th>
+                    <th>Prenume</th>
+                    <th>Varsta</th>
+                    <th>Functie</th>
+                    <th>Salariu</th>
+                    <th>Email</th>
+                    <th>Proiect</th>
+                    <th>Departament</th>
+                    <th>Delete</th>
+                    <th>Update</th>
+                </tr>
+            </thead>
+            <tbody id="table-body-employees"></tbody>
+        </table>
+    </body>
+</html>
